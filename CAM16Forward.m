@@ -3,7 +3,7 @@
 
 function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround)
     % CAM16 Color Appearance Model (Forward Model) based on appendix A
-    % in paper https://www.researchgate.net/publication/318152296_Comprehensive_color_solutions_CAM16_CAT16_and_CAM16-UCS
+    % in paper https://www.researchgate.net/publication/318152296_Comprehensive_color_solutions_CAM16_CAT16_and_CAM16-UCS cite:`Li2017`
     % Inputs:
     %   XYZ: 3x1 vector of the test color in XYZ (scale [0, 100])
     %   XYZ_w: 3x1 vector of the reference white in XYZ
