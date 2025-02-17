@@ -89,7 +89,7 @@ function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround
     if h < 0
         h = h + 360;
     end
-    tableA_h = [20.14; 90; 164.25; 237.53;380.14]; 
+    tableA_h = [20.14; 90; 164.25; 237.53; 380.14]; 
     tableA_e = [0.8; 0.7; 1; 1.2; 0.8];
     tableA_H = [0; 100; 200; 300; 400];
     hue_text = ['R', 'Y', 'G', 'B', 'R'];
