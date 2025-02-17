@@ -1,4 +1,4 @@
-% Author: Tanzima Habib, NTNU
+% Author: Tanzima Habib, NTNU, 2025
 % Github : https://github.com/stanzima/CAM16
 
 function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround)
@@ -20,7 +20,7 @@ function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround
     %   H: Hue composition
     %   Hc:Hue composition report
 
-    % Varables
+    % Variables
     % RGB are different cone responses
 
     % Surround parameters
