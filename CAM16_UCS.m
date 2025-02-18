@@ -14,16 +14,16 @@ function [J_ucs, a_ucs, b_ucs, h_ucs] = CAM16_UCS(J, M, h)
     %   b_ucs: b* coordinate in CAM16-UCS
     %   h_ucs: Hue angle in CAM16-UCS (same as h)
 
-    % Step 1: Transform lightness J to J'
+    % Step 1: Transform lightness J to J_ucs
     J_ucs = (1.7 * J) / (1 + 0.007 * J);
 
-    % Step 2: Transform colorfulness M to M'
+    % Step 2: Transform colorfulness M to M_ucs
     M_ucs = log(1 + 0.0228 * M) / 0.0228;
 
-    % Step 3: Compute a' and b' coordinates
+    % Step 3: Compute a_ucs and b_ucs coordinates
     a_ucs = M_ucs * cosd(h); % a* coordinate
     b_ucs = M_ucs * sind(h); % b* coordinate
 
-    % Step 4: Hue angle h' remains the same
+    % Step 4: Hue angle h_ucs remains the same
     h_ucs = h;
 end
