@@ -99,13 +99,12 @@ function XYZ = CAM16Inverse(J, C, h, XYZ_w, L_A, Y_b, surround)
     G_a = (460 / 1403) * p2 - (891 / 1403) * a - (261 / 1403) * b;
     B_a = (460 / 1403) * p2 - (220 / 1403) * a - (6300 / 1403) * b;
 
-    % Step 4: Calculate R_c, G_c, B_c from post adaptation cone responses to the color adaptation of the illuminant in the corresponding cone response space (considering various
-    % luminance levels and surround conditions included in D, and hence in DR, DG, and DB)
+    % Step 4: Calculate R_c, G_c, B_c (cone response in the corresponding cone space due to the color adaptation of the illuminant) from post adaptation cone responses by undoing the dynamic range compression
     R_c = sign(R_a - 0.1) * (100 / F_L) * ((27.13 * abs(R_a - 0.1)) / (400 - abs(R_a - 0.1)))^(1 / 0.42);
     G_c = sign(G_a - 0.1) * (100 / F_L) * ((27.13 * abs(G_a - 0.1)) / (400 - abs(G_a - 0.1)))^(1 / 0.42);
     B_c = sign(B_a - 0.1) * (100 / F_L) * ((27.13 * abs(B_a - 0.1)) / (400 - abs(B_a - 0.1)))^(1 / 0.42);
 
-    % Step 5: Calculate R, G, B cone responses
+    % Step 5: Calculate R, G, B cone responses from the corresponding cone responses by discounting the various luminance levels and surround conditions included in D
     RGB = [R_c / D_R; G_c / D_G; B_c / D_B];
 
     % Step 6: Calculate X, Y, Z
