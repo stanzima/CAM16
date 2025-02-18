@@ -2,7 +2,7 @@
 % Github : https://github.com/stanzima/CAM16
 
 function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround)
-    % CAM16 Color Appearance Model (Forward Model) based on appendix A
+    % CAM16 Colour Appearance Model (Forward Model) based on appendix A
     % in paper https://www.researchgate.net/publication/318152296_Comprehensive_color_solutions_CAM16_CAT16_and_CAM16-UCS cite:`Li2017`
     % Inputs:
     %   XYZ: 3x1 vector of the test color in XYZ (scale [0, 100])
@@ -18,7 +18,7 @@ function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround
     %   h: Hue angle (degrees)
     %   C: Chroma
     %   H: Hue composition
-    %   Hc:Hue composition report
+    %   Hc:Hue composition report e.g.: Hc ='G76B24' means 76% Green and  24% Blue
 
     % Variables
     % RGB are different cone responses
@@ -115,7 +115,7 @@ function [J, Q, M, s, h, C, H, Hc] = CAM16Forward(XYZ, XYZ_w, L_A, Y_b, surround
     H = tableA_H(i) + (100*(h-tableA_h(i))/tableA_e(i))/((h-tableA_h(i))/tableA_e(i) + (tableA_h(i+1)-h)/tableA_e(i+1)); %Hue Quadrature H
     
     
-    Hc = strcat(hue_text(i),num2str(round(H-tableA_H(i))),hue_text(i+1),num2str(round(tableA_H(i+1)-H))); %Hue composition
+    Hc = strcat(hue_text(i),num2str(round(H-tableA_H(i))),hue_text(i+1),num2str(round(tableA_H(i+1)-H))); %Hue composition report e.g.: Hc ='G76B24' means 76% Green and  24% Blue 
 
     % Step 6: Calculate achromatic response A
     A = (2 * RGB_a(1) + RGB_a(2) + (RGB_a(3)/20) - 0.305) * N_bb;
